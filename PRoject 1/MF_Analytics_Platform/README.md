@@ -39,7 +39,8 @@ MF_Analytics_Platform/
 ├── sql/
 │ └── queries.sql
 ├── dashboard/
-│ └── bluestock_mf_dashboard.pbix
+│   ├── MF_Analytic_Dashboard.pbix
+│   └── screenshots/          ← Power BI dashboard page screenshots
 ├── reports/
 │ ├── EDA_Findings.md
 │ └── charts/ ← 12 exported PNG charts
@@ -87,19 +88,56 @@ python recommender.py --risk High --top 3
 `--risk` accepts `Low`, `Moderate`, or `High` (default: `Moderate`). `--top` controls number of results (default: 3).
 
 **5. Open the dashboard:**
-Open `dashboard/bluestock_mf_dashboard.pbix` in Power BI Desktop. Requires the SQLite ODBC driver if refreshing data via ODBC — see project notes for driver setup, or refresh directly from `data/processed/` CSVs.
+Open `dashboard/MF_Analytic_Dashboard.pbix` in Power BI Desktop. Requires the SQLite ODBC driver if refreshing data via ODBC — see project notes for driver setup, or refresh directly from `data/processed/` CSVs.
 
 ---
 
-## Dashboard Pages
+## Dashboard Pages & Visualizations
+
+The Power BI dashboard consists of 5 interactive pages offering deep analytical views across industry metrics, fund returns, investor demographics, market trends, and granular fund drill-throughs.
 
 | Page | Contents |
 |---|---|
 | **1. Industry Overview** | KPI cards (Total AUM, SIP Inflows, Folios, Schemes), industry AUM trend, AUM by AMC |
-| **2. Fund Performance** | Return vs Risk scatter (bubble = AUM), sortable fund scorecard, NAV vs benchmark, slicers (fund house, category, plan) |
+| **2. Fund Performance** | Return vs Risk scatter (bubble = AUM), sortable fund scorecard, NAV vs benchmark, slicers (fund house, category, risk grade) |
 | **3. Investor Analytics** | Transaction amount by state, SIP/Lumpsum/Redemption split, age group vs avg SIP, monthly transaction volume, slicers (state, age group, city tier) |
 | **4. SIP & Market Trends** | SIP inflow vs Nifty 50 dual-axis, category inflow heatmap, top 5 categories by FY25 net inflow |
-| **5. NAV Details (hidden)** | Drill-through detail page from the fund scorecard table |
+| **5. NAV Details (Drill-Through)** | Dedicated drill-through detail page displaying historical NAV trajectory for selected funds |
+
+---
+
+### Page 1: Industry Overview
+*Key KPIs at a glance (Total AUM ₹62.74L Cr, SIP Inflows ₹31K Cr, Folios 26.12 Cr, 40 Schemes), 2022–2025 Industry AUM growth trend, and AUM breakdown by leading Asset Management Companies (SBI, ICICI Pru, HDFC, Nippon India).*
+
+![Page 1 - Industry Overview](./dashboard/screenshots/page_1_industry_overview.png)
+
+---
+
+### Page 2: Fund Performance
+*3-Year Return vs Risk scatter plot with category markers, Fund NAV vs Benchmark index comparison, and a comprehensive Fund Scorecard Table featuring 1-yr, 3-yr, 5-yr returns, Sharpe ratios, risk grades, and Morningstar ratings.*
+
+![Page 2 - Fund Performance](./dashboard/screenshots/page_2_fund_performance.png)
+
+---
+
+### Page 3: Investor Analytics
+*Demographic breakdown showing Average SIP Amount by Age Group, transaction type distribution (SIP 58.49% vs Redemption 35.34% vs Lumpsum 6.17%), State-wise transaction amounts, and monthly transaction volumes.*
+
+![Page 3 - Investor Analytics](./dashboard/screenshots/page_3_investor_analytics.png)
+
+---
+
+### Page 4: SIP & Market Trends
+*Dual-axis visualization of monthly SIP inflows against Nifty 50 index movements (2022–2025), monthly Category Inflow Heatmap across fund classes, and the Top 5 categories driving net inflows in FY25.*
+
+![Page 4 - SIP and Market Trends](./dashboard/screenshots/page_4_sip_and_market_trends.png)
+
+---
+
+### Page 5: NAV Details (Drill-Through)
+*Deep-dive drill-through page tracking the complete historical Net Asset Value (NAV) trajectory of individual funds over time (e.g., SBI Small Cap Fund).*
+
+![Page 5 - NAV Details Drill-Through](./dashboard/screenshots/page_5_nav_details_drill_through.png)
 
 ---
 
